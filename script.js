@@ -51,7 +51,7 @@ let numOfColumns= "";
 //     if(csvStr[i]=="\n") numOfColumns += csvStr[i]
 // }
 
-let str2 = "";
+
 let array = [];
 numOfColumns = csvStr.split("\n");
 //console.log(numOfColumns);
@@ -59,8 +59,22 @@ for(let i=0; i<numOfColumns.length; i++){
     let str =  numOfColumns[i].split(",");
     array.push(str);
 }
-
 console.log(array);
+
+let keys = array[0];
+const array2 = array.slice(1).map(row =>{
+    
+    //////test 
+    //return {id: array[1][0], name: array[1][1], Occupation: array[1][2],  Age: array[1][3] }
+    let object = {};
+    keys.forEach((key, i) => {
+        object[key.toLowerCase()] = row[i];
+    })
+    return object;
+});
+
+console.log(array2);
+
 
 
 
