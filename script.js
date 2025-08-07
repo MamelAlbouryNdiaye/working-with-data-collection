@@ -45,7 +45,7 @@ let csvStr = `ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63
 
 // //  How can I tell when a cell ends? commas!!!
 
-let numOfColumns= "";
+let numOfColumns = "";
 
 // for(let i in csvStr) {
 //     if(csvStr[i]=="\n") numOfColumns += csvStr[i]
@@ -53,31 +53,30 @@ let numOfColumns= "";
 
 /////////////////////////////Part2
 let array = [];
-numOfColumns = csvStr.split("\n"); 
+numOfColumns = csvStr.split("\n");
 //console.log(numOfColumns);
-for(let i=0; i<numOfColumns.length; i++){
-    let str =  numOfColumns[i].split(",");
-    array.push(str);
+for (let i = 0; i < numOfColumns.length; i++) {
+  let str = numOfColumns[i].split(",");
+  array.push(str);
 }
 console.log(array);
-//////////////////////////////////// Part 3 : Transforming Data 
+//////////////////////////////////// Part 3 : Transforming Data
 let keys = array[0];
-const array2 = array.slice(1).map(row =>{ 
-    
-    //////test 
-    //return {id: array[1][0], name: array[1][1], Occupation: array[1][2],  Age: array[1][3] }
-    let object = {};
-    keys.forEach((key, i) => {
-        object[key.toLowerCase()] = row[i];
-    })
-    return object;
+const array2 = array.slice(1).map((row) => {
+  //////test
+  //return {id: array[1][0], name: array[1][1], Occupation: array[1][2],  Age: array[1][3] }
+  let object = {};
+  keys.forEach((key, i) => {
+    object[key.toLowerCase()] = row[i];
+  });
+  return object;
 });
 
 console.log(array2);
 
 ///////////////////////Part 4
 
- array2.sort((a, b) => Number(a.id) - Number(b.id));
+array2.sort((a, b) => Number(a.id) - Number(b.id));
 
 // const removed = array2.pop();
 
@@ -85,27 +84,38 @@ console.log(array2);
 
 // console.log("the array after the deletion :", array2);
 
-let newObject = {id:"48", name:"Barry", occupation:"Runner", age:"25"}
-array2.splice(1,0, newObject);
+let newObject = { id: "48", name: "Barry", occupation: "Runner", age: "25" };
+array2.splice(1, 0, newObject);
 console.log("\n after the adding newObject", array2);
-let newObject2 = {id:"7", name:"Bilbo", occupation:"None", age:"111"}
+let newObject2 = { id: "7", name: "Bilbo", occupation: "None", age: "111" };
 array2.push(newObject2);
-console.log("\n\n After adding newObject2 ",array2) 
+console.log("\n\n After adding newObject2 ", array2);
 
 let averageAge = 0;
 let totalAge = 0;
-console.log(array2.length)
+console.log(array2.length);
 
 // test  --- console.log(array2[0].age);
-for(let i =0; i<array2.length; i++){
-    totalAge += Number(array2[i].age);
+for (let i = 0; i < array2.length; i++) {
+  totalAge += Number(array2[i].age);
 }
 
-averageAge = totalAge/array2.length;
+averageAge = totalAge / array2.length;
 
 console.log("Average Age:", Math.floor(averageAge));
 
+/////////////// Part 5
 
+function dataToCSV(dataOfArray) {
+  /////The header
+  const header = Object.keys(dataOfArray[0]).join(",");
+  const rows = dataOfArray.map((obj) =>
+    Object.values(obj)
+      .map((value) => `"${value}"`)
+      .join(",")
+  );
+  return [header, ...rows].join("\n");
+}
 
-
-
+const csvFile = dataToCSV(array2);
+console.log(csvFile);
