@@ -51,18 +51,18 @@ let numOfColumns= "";
 //     if(csvStr[i]=="\n") numOfColumns += csvStr[i]
 // }
 
-
+/////////////////////////////Part2
 let array = [];
-numOfColumns = csvStr.split("\n");
+numOfColumns = csvStr.split("\n"); /// sptit() crée un nouveau tableau
 //console.log(numOfColumns);
 for(let i=0; i<numOfColumns.length; i++){
     let str =  numOfColumns[i].split(",");
     array.push(str);
 }
 console.log(array);
-
+//////////////////////////////////// Part 3 : Transforming Data 
 let keys = array[0];
-const array2 = array.slice(1).map(row =>{
+const array2 = array.slice(1).map(row =>{ /////slice(1) ici ignore array[0] et map pertmet de creer un objet {Cle : valeur}
     
     //////test 
     //return {id: array[1][0], name: array[1][1], Occupation: array[1][2],  Age: array[1][3] }
@@ -74,6 +74,16 @@ const array2 = array.slice(1).map(row =>{
 });
 
 console.log(array2);
+
+///////////////////////Part 4
+
+array2.sort((a, b) => Number(a.id) - Number(b.id));
+
+const removed = array2.pop();
+
+console.log("the removed element :", removed, "\n");
+
+console.log("the array after the deletion :", array2);
 
 
 
