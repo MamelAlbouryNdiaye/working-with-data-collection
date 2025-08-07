@@ -77,14 +77,17 @@ console.log(array2);
 
 ///////////////////////Part 4
 
-array2.sort((a, b) => Number(a.id) - Number(b.id));
+ array2.sort((a, b) => Number(a.id) - Number(b.id));
 
-const removed = array2.pop();
+// const removed = array2.pop();
 
-console.log("the removed element :", removed, "\n");
+// console.log("the removed element :", removed, "\n");
 
-console.log("the array after the deletion :", array2);
+// console.log("the array after the deletion :", array2);
 
+let newObject = {id:"48", name:"Barry", occupation:"Runner", age:"25"}
+array2.splice(1,0, newObject);
+console.log("\n after the adding newObject", array2);
 
 
 
