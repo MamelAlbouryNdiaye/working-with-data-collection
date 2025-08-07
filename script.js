@@ -92,6 +92,20 @@ let newObject2 = {id:"7", name:"Bilbo", occupation:"None", age:"111"}
 array2.push(newObject2);
 console.log("\n\n After adding newObject2 ",array2) 
 
+let averageAge = 0;
+let totalAge = 0;
+console.log(array2.length)
+
+// test  --- console.log(array2[0].age);
+for(let i =0; i<array2.length; i++){
+    totalAge += Number(array2[i].age);
+}
+
+averageAge = totalAge/array2.length;
+
+console.log("Average Age:", Math.floor(averageAge));
+
+
 
 
 
