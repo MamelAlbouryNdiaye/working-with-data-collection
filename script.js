@@ -53,7 +53,7 @@ let numOfColumns= "";
 
 /////////////////////////////Part2
 let array = [];
-numOfColumns = csvStr.split("\n"); /// sptit() crée un nouveau tableau
+numOfColumns = csvStr.split("\n"); 
 //console.log(numOfColumns);
 for(let i=0; i<numOfColumns.length; i++){
     let str =  numOfColumns[i].split(",");
@@ -62,7 +62,7 @@ for(let i=0; i<numOfColumns.length; i++){
 console.log(array);
 //////////////////////////////////// Part 3 : Transforming Data 
 let keys = array[0];
-const array2 = array.slice(1).map(row =>{ /////slice(1) ici ignore array[0] et map pertmet de creer un objet {Cle : valeur}
+const array2 = array.slice(1).map(row =>{ 
     
     //////test 
     //return {id: array[1][0], name: array[1][1], Occupation: array[1][2],  Age: array[1][3] }
@@ -88,6 +88,10 @@ console.log(array2);
 let newObject = {id:"48", name:"Barry", occupation:"Runner", age:"25"}
 array2.splice(1,0, newObject);
 console.log("\n after the adding newObject", array2);
+let newObject2 = {id:"7", name:"Bilbo", occupation:"None", age:"111"}
+array2.push(newObject2);
+console.log("\n\n After adding newObject2 ",array2) 
+
 
 
 
